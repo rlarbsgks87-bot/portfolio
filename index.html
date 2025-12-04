@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김균한 - BIM 엔지니어 포트폴리오</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: #ffffff;
+            color: #2d3748;
+            line-height: 1.5;
+        }
+        
+        /* A4 페이지 설정 */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            margin: 0 auto;
+            padding: 20mm;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            page-break-after: always;
+        }
+        
+        /* 표지 */
+        .cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            height: 257mm;
+        }
+        
+        .cover h1 {
+            font-size: 52px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+        
+        .cover .position {
+            font-size: 24px;
+            color: #4a5568;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+        
+        .cover .key-value {
+            font-size: 18px;
+            color: #2d3748;
+            line-height: 2;
+            margin-bottom: 50px;
+        }
+        
+        .cover .key-value strong {
+            color: #2b6cb0;
+            font-weight: 600;
+        }
+        
+        .cover .contact {
+            font-size: 14px;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+        
+        /* 섹션 헤더 */
+        .section-header {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a202c;
+            border-bottom: 2px solid #2b6cb0;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+        
+        /* 테이블 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 11px;
+        }
+        
+        table th {
+            background: #2b6cb0;
+            color: white;
+            padding: 10px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        table td {
+            padding: 10px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+        
+        table tr:hover {
+            background: #f7fafc;
+        }
+        
+        /* 박스 */
+        .info-box {
+            background: #edf2f7;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 11px;
+            line-height: 1.7;
+        }
+        
+        .info-box strong {
+            color: #2b6cb0;
+        }
+        
+        .highlight-box {
+            background: #bee3f8;
+            border-left: 4px solid #2b6cb0;
+            padding: 15px;
+            margin-bottom: 15px;
+            font-size: 12px;
+        }
+        
+        /* 그리드 */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .skill-item {
+            background: white;
+            border: 1px solid #cbd5e0;
+            padding: 12px;
+            text-align: center;
+            border-radius: 4px;
+            font-size: 11px;
+        }
+        
+        .skill-item strong {
+            display: block;
+            color: #2b6cb0;
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+        
+        /* 이미지 플레이스홀더 */
+        .image-placeholder {
+            width: 100%;
+            height: 280px;
+            background: #f7fafc;
+            border: 2px dashed #cbd5e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+        
+        .image-placeholder-content {
+            text-align: center;
+            color: #718096;
+        }
+        
+        .image-placeholder-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+            opacity: 0.3;
+        }
+        
+        .image-placeholder-text {
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .image-placeholder-sub {
+            font-size: 10px;
+            color: #a0aec0;
+            margin-top: 5px;
+        }
+        
+        /* 리스트 */
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        ul li {
+            padding-left: 15px;
+            position: relative;
+            margin-bottom: 6px;
+            font-size: 11px;
+            line-height: 1.6;
+        }
+        
+        ul li:before {
+            content: "•";
+            color: #2b6cb0;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        /* 인쇄 최적화 */
+        @media print {
+            body {
+                background: white;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+        }
+        
+        /* 유틸리티 */
+        .mb-10 { margin-bottom: 10px; }
+        .mb-15 { margin-bottom: 15px; }
+        .mb-20 { margin-bottom: 20px; }
+        .text-bold { font-weight: 600; }
+        .text-blue { color: #2b6cb0; }
+    </style>
+</head>
+<body>
+
+    <!-- 표지 -->
+    <div class="page cover">
+        <h1>김균한</h1>
+        <div class="position">BIM Engineer</div>
+        
+        <div class="key-value">
+            <strong>13년 건축설계 경력 + 인허가 실무 전문가</strong><br>
+            프로세스를 이해하는 BIM 엔지니어
+        </div>
+        
+        <div class="key-value">
+            즉시 기여 가능한 차별화 역량:<br>
+            • 관공서 협업 다수 경험 (구청/시청 건축과)<br>
+            • 인허가 도면 규격 완벽 숙지<br>
+            • 법규 검토 및 심의 대응 능력<br>
+            • Revit 모델링 (중급) + Computational Design (기초)
+        </div>
+        
+        <div class="contact">
+            📧 rlarbsgks87@naver.com<br>
+            📱 010-6621-3132<br>
+            📄 Portfolio 2025
+        </div>
+    </div>
+
+    <!-- Page 1: 핵심 역량 요약 -->
+    <div class="page">
+        <div class="section-header">핵심 역량 요약</div>
+        
+        <div class="highlight-box">
+            <strong style="font-size: 14px;">왜 김균한인가?</strong><br>
+            대부분의 BIM 엔지니어는 도구만 다룹니다. 저는 13년 실무로 <strong>프로세스 전체를 이해</strong>하며, 
+            인허가 리스크를 사전 차단하고 즉시 프로젝트에 투입 가능합니다.
+        </div>
+        
+        <table>
+            <tr>
+                <th style="width: 25%;">구분</th>
+                <th>내용</th>
+            </tr>
+            <tr>
+                <td><strong>경력</strong></td>
+                <td>건축설계 13년 (주거/근린/업무시설)</td>
+            </tr>
+            <tr>
+                <td><strong>인허가 실무</strong></td>
+                <td>건축허가 다수 완료 / 관공서(구청/시청) 직접 협의 / 건축심의·경관심의 대응</td>
+            </tr>
+            <tr>
+                <td><strong>BIM 역량</strong></td>
+                <td>Revit 모델링 (중급) / 인허가 도면 세팅 / Family 제작 / Sheet 구성</td>
+            </tr>
+            <tr>
+                <td><strong>Computational</strong></td>
+                <td>Grasshopper 기초 / Rhino.Inside 학습 중 / Dynamo 활용 가능</td>
+            </tr>
+            <tr>
+                <td><strong>소프트웨어</strong></td>
+                <td>AutoCAD, Revit</td>
+            </tr>
+        </table>
+        
+        <div class="section-header" style="margin-top: 30px;">차별화 포인트</div>
+        
+        <div class="grid-3">
+            <div class="skill-item">
+                <strong>관공서 협업</strong>
+                건축과 직접 협의<br>
+                보완 요청 즉시 대응<br>
+                인허가 프로세스 완벽 이해
+            </div>
+            <div class="skill-item">
+                <strong>법규 검토</strong>
+                건축법/주차장법/소방법<br>
+                건폐율/용적률 산정<br>
+                일조권 분석
+            </div>
+            <div class="skill-item">
+                <strong>심의 대응</strong>
+                건축심의 자료 작성<br>
+                위원 질의응답<br>
+                보완 사항 반영
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <strong>즉시 기여 가능 영역</strong><br>
+            • 인허가 리스크 30% 감소: 13년 경험으로 관공서 보완 요청 사전 예방<br>
+            • 빠른 프로젝트 투입: 프로세스 이해로 교육 기간 최소화 (일반 신입 대비 2-3배 빠름)<br>
+            • 실무 최적화 모델: 인허가 도면 즉시 추출 가능한 BIM 모델 구축<br>
+            • 관공서 커뮤니케이션: 건축과 협의 경험으로 질의응답 신속 처리
+        </div>
+        
+        <div class="info-box">
+            <strong>1-2년 후 기여</strong><br>
+            • 도면 작성 시간 40% 단축: 인허가 Template 표준화<br>
+            • 법규 검토 자동화: Grasshopper 활용 건폐율/용적률 실시간 체크<br>
+            • BIM 표준 정립: 회사 BIM 가이드라인 구축 및 후배 교육
+        </div>
+        
+        <div class="highlight-box" style="margin-top: 20px;">
+            <strong>일반 BIM 엔지니어 vs 김균한</strong><br><br>
+            <table style="margin: 0; background: transparent;">
+                <tr style="background: transparent;">
+                    <td style="border: none; padding: 5px;"><strong>일반 BIM</strong></td>
+                    <td style="border: none; padding: 5px;">프로세스 모름 / 인허가 규격 모름 / 법규 검토 불가</td>
+                </tr>
+                <tr style="background: transparent;">
+                    <td style="border: none; padding: 5px;"><strong>김균한</strong></td>
+                    <td style="border: none; padding: 5px;"><strong>프로세스 완벽 이해 / 인허가 도면 정확 세팅 / 법규 리스크 사전 파악</strong></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div style="margin-top: 20px; padding: 10px; background: #fffbeb; border-left: 4px solid #f59e0b; font-size: 10px;">
+            📎 상세 경력 사항은 별도 경력증명서 참조
+        </div>
+    </div>
+
+    <!-- Page 2: 실무 경력 상세 -->
+    <div class="page">
+        <div class="section-header">실무 경력 상세</div>
+        
+        <div class="info-box mb-20">
+            <strong>경력 요약</strong><br>
+            13년간 주거/근린생활/업무시설 프로젝트 다수 수행. 
+            설계 전 과정 및 인허가 실무 경험으로 프로젝트 리스크 관리 능력 보유.
+        </div>
+        
+        <div class="section-header" style="font-size: 16px; margin-top: 25px;">인허가 실무 전문성</div>
+        
+        <table style="margin-bottom: 15px;">
+            <tr>
+                <th style="width: 30%;">영역</th>
+                <th>주요 업무 및 성과</th>
+            </tr>
+            <tr>
+                <td><strong>관공서 협업</strong></td>
+                <td>
+                    • 구청/시청 건축과 담당자와 직접 협의 다수<br>
+                    • 건축허가 프로세스 (허가 → 착공 → 사용승인) 전체 경험<br>
+                    • 보완 요청 사항 즉시 파악 및 대응<br>
+                    • 인허가 도면 규격 (건축법 시행규칙 기준) 완벽 숙지
+                </td>
+            </tr>
+            <tr>
+                <td><strong>법규 검토</strong></td>
+                <td>
+                    • 건축법/주차장법/소방법/장애인법 실무 검토<br>
+                    • 건폐율/용적률 정확한 산정<br>
+                    • 일조권 분석 및 사선제한 검토<br>
+                    • 주차대수 산정 및 레이아웃 검토
+                </td>
+            </tr>
+            <tr>
+                <td><strong>심의 대응</strong></td>
+                <td>
+                    • 건축심의 자료 작성 (도서/프레젠테이션)<br>
+                    • 경관심의 대응 및 가이드라인 검토<br>
+                    • 심의위원 질의응답 즉시 처리<br>
+                    • 심의 조건 및 권고사항 반영
+                </td>
+            </tr>
+            <tr>
+                <td><strong>프로젝트 관리</strong></td>
+                <td>
+                    • 설계-인허가-시공 전 과정 이해 및 조율<br>
+                    • 협력업체(소방/전기/구조) 도면 연계<br>
+                    • 일정 관리 및 리스크 예측<br>
+                    • 발주처 커뮤니케이션
+                </td>
+            </tr>
+        </table>
+        
+        <div class="section-header" style="font-size: 16px; margin-top: 25px;">BIM 역량</div>
+        
+        <table>
+            <tr>
+                <th style="width: 30%;">기술</th>
+                <th style="width: 20%;">수준</th>
+                <th>상세 내용</th>
+            </tr>
+            <tr>
+                <td><strong>Revit 모델링</strong></td>
+                <td>중급</td>
+                <td>
+                    중소형 프로젝트 독립 작업 가능 / 벽체·슬라브·계단 모델링 / 
+                    레벨 설정 및 뷰 구성 / 치수·주석 작업
+                </td>
+            </tr>
+            <tr>
+                <td><strong>인허가 도면 세팅</strong></td>
+                <td>중급</td>
+                <td>
+                    건축법 기준 도면 구성 / 관공서 제출용 Sheet 세팅 / 
+                    Title Block 작성 / 법규 검토 파라미터 관리
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Family 제작</strong></td>
+                <td>초중급</td>
+                <td>
+                    기존 Family 수정 및 파라미터 조정 / 
+                    간단한 Family 제작 (문·창·가구)
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Grasshopper</strong></td>
+                <td>기초</td>
+                <td>
+                    기초 파라메트릭 스터디 / 간단한 형태 생성 / 
+                    향후 법규 자동화 활용 계획
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Rhino.Inside</strong></td>
+                <td>학습 중</td>
+                <td>
+                    Massing → Revit 연계 기본 워크플로우 이해 / 
+                    실무 적용 학습 진행 중
+                </td>
+            </tr>
+        </table>
+        
+        <div class="info-box" style="margin-top: 20px;">
+            <strong>실무 적용 계획</strong><br>
+            현재 Revit 중심 BIM 업무 수행 가능. 업무 외 시간 활용하여 
+            Dynamo/Grasshopper/Revit API를 지속 학습하며, 
+            1-2년 내 인허가 프로세스 자동화 및 법규 검토 자동화 시스템 구축 목표.
+        </div>
+    </div>
+
+    <!-- 연락처 푸터 -->
+    <div style="margin-top: 40px; padding: 20px; background: #edf2f7; border-radius: 4px; text-align: center;">
+        <div style="font-size: 16px; font-weight: 600; color: #2b6cb0; margin-bottom: 10px;">
+            김균한
+        </div>
+        <div style="font-size: 12px; color: #4a5568;">
+            📧 rlarbsgks87@naver.com  |  📱 010-6621-3132
+        </div>
+        <div style="font-size: 11px; color: #718096; margin-top: 12px;">
+            상세 문의 환영합니다
+        </div>
+    </div>
+    </div>
+
+</body>
+</html>
